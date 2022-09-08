@@ -15,7 +15,7 @@ html {
 }
 
 body {
-	background-color: #54f6a0;
+	background-color: grey;
 }
 
 h1 {
@@ -110,7 +110,7 @@ img {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background-color: #f9d2c5;
+	background-color: burlywood;
 	box-shadow: 4px 1px 10px 0px #dadada;
 	border-radius: 4px;
 	padding: 3rem 3rem 1rem 3rem;
