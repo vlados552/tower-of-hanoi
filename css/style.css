@@ -16,6 +16,7 @@ html {
 
 body {
 	background-color: grey;
+	/* min-height: 100vh; */
 }
 
 h1 {
@@ -50,7 +51,23 @@ img {
 	max-width: 1200px;
 	margin-right: auto;
 	margin-left: auto;
-	min-height: 100vh;
+	/* min-height: 100vh; */
+}
+
+.rod {
+	width: 100px;
+	height: 200px;
+	background-color: yellow;
+}
+
+.basement {
+	width: 100%;
+	height: 20px;
+	background-color: green;
+}
+
+.disk {
+	background-color: orange;
 }
 
 .hide {
@@ -62,6 +79,10 @@ img {
 =============================== */
 .flex-container {
 	display: flex;
+}
+
+.flex-row {
+	flex-direction: row;
 }
 
 .flex-column {
@@ -79,9 +100,14 @@ img {
 .space-evenly {
 	justify-content: space-evenly;
 }
+
 .center {
 	align-items: center;
 	justify-content: center;
+}
+
+.flex-end {
+	justify-content: flex-end;
 }
 
 .col-1 {
