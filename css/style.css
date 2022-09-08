@@ -1,0 +1,121 @@
+/* ===============================
+  Base & Utility STYLES
+=============================== */
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
+	color: #424242;
+}
+
+body {
+	background-color: #54f6a0;
+}
+
+h1 {
+	font-family: 'Arial', monospace;
+	font-size: 3rem;
+	padding: 1rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.wrapper {
+	max-width: 1200px;
+	margin-right: auto;
+	margin-left: auto;
+	min-height: 100vh;
+}
+
+.hide {
+	display: none;
+}
+
+/* ===============================
+  Flex STYLES
+=============================== */
+.flex-container {
+	display: flex;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.space-between {
+	justify-content: space-between;
+}
+
+.space-evenly {
+	justify-content: space-evenly;
+}
+.center {
+	align-items: center;
+	justify-content: center;
+}
+
+.col-1 {
+	flex-basis: 8%;
+}
+
+.col-10 {
+	flex-basis: 83%;
+}
+
+/* ===============================
+  Modal
+=============================== */
+.modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgb(255, 255, 255);
+	transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.modal-inner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #f9d2c5;
+	box-shadow: 4px 1px 10px 0px #dadada;
+	border-radius: 4px;
+	padding: 3rem 3rem 1rem 3rem;
+}
+
+.modal-inner * {
+	margin-bottom: 1.5rem;
+}
