@@ -9,5 +9,65 @@
 		<link rel="stylesheet" href="css/style.css" />
 		<script defer src="js/script.js"></script>
 	</head>
-	<body></body>
+	<body>
+		<div class="wrapper">
+			<header>
+				<h1>Tower of Hanoi</h1>
+			</header>
+			<main>
+				<div class="wrapper main">
+					<div class="left-rod">
+						<div class="basement"></div>
+					</div>
+					<div class="center-rod">
+						<div class="basement"></div>
+					</div>
+					<div class="right-rod">
+						<div class="basement"></div>
+					</div>
+				</div>
+				<button>Surrender</button>
+			</main>
+			<footer>&copy; <a href="">vlados552</a></footer>
+			<section class="modal">
+				<div class="modal-inner text-center">
+					<h3>Do you like solve puzzles? We have one</h3>
+					<h2>Tower of Hanoi</h2>
+					<button id="js-modal-btn-play">Play</button>
+					<button id="js-modal-btn-how-to">How to Play</button>
+				</div>
+			</section>
+			<section class="modal modal-how-to-play hide">
+				<div class="modal-inner text-center">
+					<h3>We have only four rules:</h3>
+					<ol>
+						<li>Only one disk can be moved at a time</li>
+						<li>
+							Every move involves taking the top disk from one of the stacks and
+							placing it on top of another stack.
+						</li>
+						<li>No disk can be put on top of a smaller disk.</li>
+						<li>
+							Share this game with your friend. We hope that you have friends.
+						</li>
+					</ol>
+					<!-- ToDo: add FAQ with drop-down answer -->
+					<!-- <p>What I need to do if I can't follow 4th rule?</p> -->
+					<!-- <p>You should join our <a href="">Discord channel</a></p> -->
+				</div>
+			</section>
+			<!-- <section class="modal modal-difficult hide"></section> -->
+			<section class="modal modal-game-over hide">
+				<div class="modal-innner text-center">
+					<h3 id="js-modal-game-over-text">
+						You are too week to know madness.
+					</h3>
+					<button id="js-modal-game-over-play-again">No, I'm not</button>
+					<!-- <button id="js-modal-game-over-pick-difficult">
+						No, it was too easy
+					</button> -->
+				</div>
+			</section>
+		</div>
+	</body>
 </html>
