@@ -5,12 +5,14 @@ const GAME_STATE_HOWTOPLAY = 1;
 // const GAME_STATE_DIFFICULT = 2;
 const GAME_STATE_GAMEPLAY = 3;
 const GAME_STATE_GAMEOVER = 4;
+const GAME_STATE_GAMECOMPLETE = 5;
 //#endregion
 //#region /*----- app's state (variables) -----*/
 let gameState;
 let leftRodArr;
 let centerRodArr;
 let rightRodArr;
+let pickedDisk;
 //#endregion
 //#region /*----- cached element references -----*/
 const btnPlay = document.querySelector('#js-modal-btn-play');
@@ -18,10 +20,14 @@ const btnHowToPlay = document.querySelector('#js-modal-btn-how-to');
 const btnCloseHowToPlay = document.querySelector('#js-modal-btn-how-to-close');
 const btnSurrender = document.querySelector('#js-btn-surrender');
 const btnPlayAgain = document.querySelector('#js-modal-game-over-play-again');
+const btnCompletePlayAgain = document.querySelector(
+	'#js-modal-game-complete-play-again'
+);
 const body = document.querySelector('body');
 const modalWelcome = document.querySelector('.modal-welcome');
 const modalHowToPlay = document.querySelector('.modal-how-to-play');
 const modalGameOver = document.querySelector('.modal-game-over');
+const modalGameComplete = document.querySelector('.modal-game-complete');
 const leftRodEl = document.querySelector('.left-rod');
 const centerRodEl = document.querySelector('.center-rod');
 const rightRodEl = document.querySelector('.right-rod');
@@ -35,54 +41,84 @@ body.addEventListener('click', function (e) {
 	}
 	if (e.target === btnHowToPlay) {
 		gameState = GAME_STATE_HOWTOPLAY;
-		render();
 	}
 	if (e.target === btnCloseHowToPlay) {
 		gameState = GAME_STATE_WELCOME;
-		render();
 	}
 	if (e.target === btnSurrender) {
 		gameState = GAME_STATE_GAMEOVER;
-		render();
 	}
-	if (e.target === btnPlayAgain) {
+	if (e.target === btnPlayAgain || e.target === btnCompletePlayAgain) {
 		gameState = GAME_STATE_GAMEPLAY;
-		render();
+		init();
 	}
 	if (e.path.includes(leftRodEl)) {
-		console.log(true);
+		makeAction(leftRodArr);
 	}
+	if (e.path.includes(centerRodEl)) {
+		makeAction(centerRodArr);
+	}
+	if (e.path.includes(rightRodEl)) {
+		makeAction(rightRodArr);
+	}
+	render();
 });
+// document.addEventListener('keypress', function (e) {
+// 	const keyName = e.key;
+// 	if (gameState === GAME_STATE_GAMEPLAY) {
+// 		if (keyName === '1') {
+// 			makeAction(leftRodArr);
+// 		}
+// 		if (keyName === '2') {
+// 			makeAction(leftRodArr);
+// 		}
+// 		if (keyName === '3') {
+// 			makeAction(leftRodArr);
+// 		}
+// 		render();
+// 	}
+// });
 //#endregion
 //#region /*----- functions -----*/
 function init() {
 	gameState = GAME_STATE_GAMEPLAY;
+	pickedDisk = null;
 	clearRodsArr();
 	clearRodsEl();
 	generateDisks(DIFFICULT);
-	render();
 }
 function render() {
 	renderGameState();
-	renderRods();
+	if (gameState === GAME_STATE_GAMEPLAY) {
+		renderRods();
+	}
 }
 function renderGameState() {
 	if (gameState === GAME_STATE_WELCOME) {
 		removeClass(modalWelcome, 'hide');
 		addClass(modalHowToPlay, 'hide');
 		addClass(modalGameOver, 'hide');
+		addClass(modalGameComplete, 'hide');
 	} else if (gameState === GAME_STATE_HOWTOPLAY) {
 		addClass(modalWelcome, 'hide');
 		removeClass(modalHowToPlay, 'hide');
 		addClass(modalGameOver, 'hide');
+		addClass(modalGameComplete, 'hide');
 	} else if (gameState === GAME_STATE_GAMEPLAY) {
 		addClass(modalWelcome, 'hide');
 		addClass(modalHowToPlay, 'hide');
 		addClass(modalGameOver, 'hide');
+		addClass(modalGameComplete, 'hide');
 	} else if (gameState === GAME_STATE_GAMEOVER) {
 		addClass(modalWelcome, 'hide');
 		addClass(modalHowToPlay, 'hide');
 		removeClass(modalGameOver, 'hide');
+		addClass(modalGameComplete, 'hide');
+	} else if (gameState === GAME_STATE_GAMECOMPLETE) {
+		addClass(modalWelcome, 'hide');
+		addClass(modalHowToPlay, 'hide');
+		addClass(modalGameOver, 'hide');
+		removeClass(modalGameComplete, 'hide');
 	}
 }
 function renderRods() {
@@ -142,5 +178,44 @@ function createBasement() {
 	element = document.createElement('div');
 	element.classList.add('basement');
 	return element;
+}
+function pickDisk(source) {
+	pickedDisk = source;
+}
+function moveDisk(source, destination) {
+	destination.push(source[source.length - 1]);
+	source.pop();
+	pickedDisk = null;
+}
+function checkEligibility(destination) {
+	if (
+		pickedDisk[pickedDisk.length - 1] < destination[destination.length - 1] ||
+		destination[destination.length - 1] === undefined
+	) {
+		return true;
+	} else {
+		incorrectMove();
+		return false;
+	}
+}
+function makeAction(array) {
+	if (pickedDisk === array) {
+		pickedDisk = null;
+	} else if (pickedDisk !== null) {
+		if (checkEligibility(array)) {
+			moveDisk(pickedDisk, array);
+			isPuzzleSolved();
+		}
+	} else {
+		pickDisk(array);
+	}
+}
+function incorrectMove() {
+	console.log('incorrect move');
+}
+function isPuzzleSolved() {
+	if (rightRodArr.length === DIFFICULT) {
+		gameState = GAME_STATE_GAMECOMPLETE;
+	}
 }
 //#endregion
