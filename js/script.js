@@ -149,7 +149,19 @@ function createElementDisk(index) {
 	element.classList.add('disk');
 	element.style.height = '20%';
 	element.style.width = diskWidth(index);
-	element.style.border = '3px solid white';
+	// element.style.border = '3px solid white';
+	if (index === 1) {
+		element.style.backgroundImage = "url('/img/top.png')";
+		element.style.backgroundSize = 'contain';
+		element.style.backgroundRepeat = 'no-repeat';
+	} else {
+		element.style.backgroundImage = `url('/img/part${Math.floor(
+			getRandomValue(1, 2)
+		)}.png')`;
+		element.style.backgroundSize = 'contain';
+		element.style.backgroundRepeat = 'no-repeat';
+	}
+
 	return element;
 }
 function diskWidth(index) {
@@ -216,6 +228,14 @@ function incorrectMove() {
 function isPuzzleSolved() {
 	if (rightRodArr.length === DIFFICULT) {
 		gameState = GAME_STATE_GAMECOMPLETE;
+	}
+}
+
+function getRandomValue(min, max) {
+	if (min > 1) {
+		return Math.random() * (max + 1 - min) + min;
+	} else {
+		return Math.random() * (max - min) + min;
 	}
 }
 //#endregion
