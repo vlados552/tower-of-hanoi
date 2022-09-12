@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'geosteamregular';
+    src: url('/fonts/geosteam-ejap-webfont.woff2') format('woff2'),
+         url('/fonts/geosteam-ejap-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 /* ===============================
   Base & Utility STYLES
 =============================== */
@@ -10,19 +19,21 @@
 
 html {
 	font-size: 16px;
-	font-family: 'Open Sans', sans-serif;
-	color: #424242;
+	font-family: "geosteamregular", Arial, sans-serif;
+	color: #010100;
 }
-
+button{
+	font-family: "geosteamregular", Arial, sans-serif;
+}
 body {
-	background-color: grey;
+	background: radial-gradient(circle, #8C6443, #261B0E);
 	/* min-height: 100vh; */
 }
 
 h1 {
-	font-family: 'Arial', monospace;
 	font-size: 3rem;
 	padding: 1rem;
+	text-align: center;
 }
 
 h2 {
@@ -48,10 +59,15 @@ img {
 }
 
 .wrapper {
-	max-width: 1200px;
-	margin-right: auto;
-	margin-left: auto;
-	/* min-height: 100vh; */
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.main{
+	background-image: url("/img/background.gif");
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 1000px;
 }
 
 .rod {
@@ -110,6 +126,10 @@ img {
 	justify-content: flex-end;
 }
 
+.flex-items-end{
+	align-items: flex-end;
+}
+
 .col-1 {
 	flex-basis: 8%;
 }
@@ -127,7 +147,8 @@ img {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgb(255, 255, 255);
+	/* background-color: rgb(255, 255, 255); */
+	background: radial-gradient(circle, #8C6443, #261B0E);
 	transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -136,7 +157,9 @@ img {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background-color: burlywood;
+	background-image: url("/img/modal.gif");
+	background-size: contain;
+	background-repeat: no-repeat;
 	box-shadow: 4px 1px 10px 0px #dadada;
 	border-radius: 4px;
 	padding: 3rem 3rem 1rem 3rem;
