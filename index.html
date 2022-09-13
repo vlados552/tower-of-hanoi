@@ -4,10 +4,89 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>Tower of Hanoi</title>
+		<link rel="icon" type="image/x-icon" href="/img/favicon.gif" />
 		<link rel="stylesheet" href="css/reset.css" />
 		<link rel="stylesheet" href="css/style.css" />
 		<script defer src="js/script.js"></script>
 	</head>
-	<body></body>
+	<body>
+		<div class="wrapper">
+			<header class="banner-title">
+				<h1>tower of hanoi</h1>
+			</header>
+			<main>
+				<div
+					class="wrapper main flex-container flex-row space-evenly flex-items-end"
+				>
+					<div class="rod left-rod flex-container flex-column center flex-end">
+						<div class="basement"></div>
+					</div>
+					<div
+						class="rod center-rod flex-container flex-column center flex-end"
+					>
+						<div class="basement"></div>
+					</div>
+					<div class="rod right-rod flex-container flex-column center flex-end">
+						<div class="basement"></div>
+					</div>
+				</div>
+				<button id="js-btn-surrender">SURRENDER</button>
+			</main>
+			<footer>
+				<p>&copy; <a href="https://github.com/vlados552">vlados552</a></p>
+			</footer>
+			<section class="modal modal-welcome">
+				<div class="modal-inner text-center modal-inner-welcome">
+					<h3>ARE YOU READY TO KNOW MADNESS?</h3>
+					<h2 id="game-name">TOWER OF HANOI</h2>
+					<button id="js-modal-btn-play">PLAY</button>
+					<button id="js-modal-btn-how-to">HOW TO PLAY</button>
+				</div>
+			</section>
+			<section class="modal modal-how-to-play hide">
+				<div class="modal-inner text-center modal-inner-rules">
+					<h3>WE HAVE ONLY FOUR RULES:</h3>
+					<ol>
+						<li>ONLY ONE DISK CAN BE MOVED AT A TIME</li>
+						<li>
+							EVERY MOVE INVOLVES TAKING THE TOP DISK FROM ONE OF THE STACKS AND
+							PLACING IT ON TOP OF ANOTHER STACK.
+						</li>
+						<li>NO DISK CAN BE PUT ON TOP OF A SMALLER DISK.</li>
+						<li>
+							SHARE THIS GAME WITH YOUR FRIEND. WE HOPE THAT YOU HAVE FRIENDS.
+						</li>
+					</ol>
+					<!-- ToDo: add FAQ with drop-down answer -->
+					<!-- <p>What I need to do if I can't follow 4th rule?</p> -->
+					<!-- <p>You should join our <a href="">Discord channel</a></p> -->
+					<button id="js-modal-btn-how-to-close">OK, GOT IT!</button>
+				</div>
+			</section>
+			<!-- <section class="modal modal-difficult hide"></section> -->
+			<section class="modal modal-game-over hide">
+				<div class="modal-inner text-center banner-title modal-inner-game-over">
+					<h3>
+						YOU ARE TOO WEEK TO KNOW MADNESS.
+					</h3>
+					<button id="js-modal-game-over-play-again">NO, I'M NOT</button>
+					<!-- <button id="js-modal-game-over-pick-difficult">
+						No, it was too easy
+					</button> -->
+				</div>
+			</section>
+			<section class="modal modal-game-complete hide">
+				<div class="modal-inner text-center banner-title modal-inner-game-complete">
+					<h3>CONGRATULATION!</h3>
+					<h4>WE ARE PROUD OF YOU!</h4>
+					<h4>ARE YOU READY TO SOLVE IT AGAIN?</h4>
+					<button id="js-modal-game-complete-play-again">PLAY AGAIN</button>
+					<!-- <button id="js-modal-game-over-pick-difficult">
+						No, it was too easy
+					</button> -->
+				</div>
+			</section>
+		</div>
+	</body>
 </html>

@@ -1,0 +1,318 @@
+/* ===============================
+  Fonts
+=============================== */
+@font-face {
+	font-family: 'geosteamregular';
+	src: url('/fonts/geosteam-ejap-webfont.woff2') format('woff2'),
+		url('/fonts/geosteam-ejap-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* ===============================
+  Base & Utility STYLES
+=============================== */
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 16px;
+	font-family: 'geosteamregular', Arial, sans-serif;
+	color: #010100;
+}
+
+button {
+	font-family: 'geosteamregular', Arial, sans-serif;
+}
+
+body {
+	background: radial-gradient(circle, #8c6443, #261b0e);
+	min-height: 100vh;
+}
+
+h1 {
+	font-size: 2.5rem;
+	padding: 1rem;
+	text-align: center;
+	color:white;
+	padding-left: 15%;
+	padding-right: 15%;
+	padding-top: 4%;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	padding-top: 20%;
+	padding-bottom: 20%;
+}
+
+h3{
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+li{
+	padding: 1rem 2rem;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.wrapper {
+	max-width: 1000px;
+	max-height: 100vh;
+	height: 100vh;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+header {
+	height: 10vh;
+	margin-left: 10vw;
+	margin-right: 10vw;
+}
+
+.banner-title{
+	background-image: url('/img/banner_title.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+main {
+	margin-left: 10vw;
+	margin-right: 10vw;
+	text-align: center;
+}
+
+.main {
+	background-image: url('/img/background.gif');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	height: 80vh;
+}
+
+footer {
+	height: 10vh;
+	margin-left: 10vw;
+	margin-right: 10vw;
+	font-family: Arial, Helvetica, sans-serif;
+	background-image: url('/img/banner_title.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+footer > p {
+	padding-left: 18%;
+	padding-right: 18%;
+	padding-top: 5%;
+	color: white;
+}
+
+footer > a, a:link, a:visited{
+	color: white;
+	text-decoration: none;
+}
+
+.rod {
+	width: 30vw;
+	height: 80vh;
+}
+
+.basement {
+	width: 100%;
+	height: 10vh;
+	background-image: url('/img/basement.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+#game-name {
+	opacity: 0;
+	animation: turningOn 2s ease 3s 1 normal forwards;
+}
+
+.hide {
+	display: none;
+}
+
+/* ===============================
+  Flex STYLES
+=============================== */
+.flex-container {
+	display: flex;
+}
+
+.flex-row {
+	flex-direction: row;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.space-between {
+	justify-content: space-between;
+}
+
+.space-evenly {
+	justify-content: space-evenly;
+}
+
+.center {
+	align-items: center;
+	justify-content: center;
+}
+
+.flex-end {
+	justify-content: flex-end;
+}
+
+.flex-items-end {
+	align-items: flex-end;
+}
+
+.col-1 {
+	flex-basis: 8%;
+}
+
+.col-10 {
+	flex-basis: 83%;
+}
+
+/* ===============================
+  Modal
+=============================== */
+.modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: radial-gradient(circle, #372b2e, #261b0e);
+	transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.modal-inner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	animation: MoveUpDown 2s linear 1;
+	color: white;
+}
+
+.modal-inner * {
+	margin-bottom: 1.5rem;
+}
+
+.modal-inner-welcome {
+	background-image: url('/img/modal.gif');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	box-shadow: 4px 1px 10px 0px #dadada;
+	border-radius: 4px;
+	padding: 1rem 3rem 1rem 3rem;
+	min-height: 30vh;
+}
+.modal-inner-rules {
+	background-image: url('/img/banner_2.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	padding: 5rem 9rem 1rem 9rem;
+	min-height: 30vh;
+}
+
+.modal-inner-game-over{
+	padding: 3rem 7rem 3rem 7rem;
+}
+
+.modal-inner-game-complete{
+	padding: 3rem 7rem 3rem 7rem;
+}
+/* ===============================
+  Animation
+=============================== */
+.shake {
+	animation: 1s shake none;
+}
+
+@keyframes turningOn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes MoveUpDown {
+	0% {
+		transform: translate(-50%, -120%);
+	}
+	100% {
+		transform: translate(-50%, -50%);
+	}
+}
+
+@keyframes shake {
+	0% {
+		transform: translateX(2px);
+	}
+	10% {
+		transform: translateX(-1px);
+	}
+	20% {
+		transform: translateX(-3px);
+	}
+	30% {
+		transform: translateX(0px);
+	}
+	40% {
+		transform: translateX(1px);
+	}
+	50% {
+		transform: translateX(-1px);
+	}
+	60% {
+		transform: translateX(-3px);
+	}
+	70% {
+		transform: translateX(2px);
+	}
+	80% {
+		transform: translateX(-1px);
+	}
+	90% {
+		transform: translateX(2px);
+	}
+	100% {
+		transform: translateX(0px);
+	}
+}
