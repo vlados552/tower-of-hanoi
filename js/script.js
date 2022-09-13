@@ -189,6 +189,9 @@ function createBasement() {
 	return element;
 }
 function pickDisk(source) {
+	if (source.length === 0){
+		return
+	}
 	pickedDisk = source;
 }
 function moveDisk(source, destination) {
