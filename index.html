@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<header class="banner-title">
+			<header class="flex-container center banner-title">
 				<h1>tower of hanoi</h1>
 			</header>
 			<main>
@@ -33,7 +33,7 @@
 				</div>
 				<button id="js-btn-surrender">SURRENDER</button>
 			</main>
-			<footer>
+			<footer class="flex-container center">
 				<p>&copy; <a href="https://github.com/vlados552">vlados552</a></p>
 			</footer>
 			<section class="modal modal-welcome">
@@ -67,9 +67,7 @@
 			<!-- <section class="modal modal-difficult hide"></section> -->
 			<section class="modal modal-game-over hide">
 				<div class="modal-inner text-center banner-title modal-inner-game-over">
-					<h3>
-						YOU ARE TOO WEEK TO KNOW MADNESS.
-					</h3>
+					<h3>YOU ARE TOO WEEK TO KNOW MADNESS.</h3>
 					<button id="js-modal-game-over-play-again">NO, I'M NOT</button>
 					<!-- <button id="js-modal-game-over-pick-difficult">
 						No, it was too easy
@@ -77,7 +75,9 @@
 				</div>
 			</section>
 			<section class="modal modal-game-complete hide">
-				<div class="modal-inner text-center banner-title modal-inner-game-complete">
+				<div
+					class="modal-inner text-center banner-title modal-inner-game-complete"
+				>
 					<h3>CONGRATULATION!</h3>
 					<h4>WE ARE PROUD OF YOU!</h4>
 					<h4>ARE YOU READY TO SOLVE IT AGAIN?</h4>
