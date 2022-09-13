@@ -145,10 +145,6 @@ footer > a, a:link, a:visited{
 	background-repeat: no-repeat;
 }
 
-.disk {
-	/*  */
-}
-
 #game-name {
 	opacity: 0;
 	animation: turningOn 2s ease 3s 1 normal forwards;
@@ -215,7 +211,6 @@ footer > a, a:link, a:visited{
 	left: 0;
 	right: 0;
 	bottom: 0;
-	/* background-color: rgb(255, 255, 255); */
 	background: radial-gradient(circle, #372b2e, #261b0e);
 	transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }

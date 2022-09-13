@@ -72,22 +72,6 @@ body.addEventListener('click', function (e) {
 	}
 	render();
 });
-
-// document.addEventListener('keypress', function (e) {
-// 	const keyName = e.key;
-// 	if (gameState === GAME_STATE_GAMEPLAY) {
-// 		if (keyName === '1') {
-// 			makeAction(leftRodArr);
-// 		}
-// 		if (keyName === '2') {
-// 			makeAction(leftRodArr);
-// 		}
-// 		if (keyName === '3') {
-// 			makeAction(leftRodArr);
-// 		}
-// 		render();
-// 	}
-// });
 //#endregion
 //#region /*----- functions -----*/
 function init() {
@@ -143,7 +127,6 @@ function renderRods() {
 }
 function renderRod(rodArr, rodEl) {
 	rodArr.forEach(function (value) {
-		// rodEl.appendChild(createElementDisk(value));
 		rodEl.prepend(createElementDisk(value));
 	});
 }
@@ -239,7 +222,6 @@ function makeAction(array) {
 		pickDisk(array);
 	}
 }
-
 function renderIncorrectMove(array) {
 	if (array === leftRodArr) {
 		addClass(leftRodEl.firstChild, 'shake');
