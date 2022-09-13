@@ -72,6 +72,20 @@ body.addEventListener('click', function (e) {
 	}
 	render();
 });
+
+document.addEventListener('keypress', function (e) {
+	const keyName = e.key;
+	if (keyName == 1) {
+		makeAction(leftRodArr);
+	}
+	if (keyName == 2) {
+		makeAction(centerRodArr);
+	}
+	if (keyName == 3) {
+		makeAction(rightRodArr);
+	}
+	render();
+});
 //#endregion
 //#region /*----- functions -----*/
 function init() {
@@ -189,8 +203,8 @@ function createBasement() {
 	return element;
 }
 function pickDisk(source) {
-	if (source.length === 0){
-		return
+	if (source.length === 0) {
+		return;
 	}
 	pickedDisk = source;
 }

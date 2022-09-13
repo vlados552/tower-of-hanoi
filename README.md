@@ -14,3 +14,4 @@
 ### :smiling_face_with_three_hearts: User stories:
 - As a user, I want to make sure that I’m ready to play before the game starts, so that I don’t miss any steps or lose game.
 - As a user, I want to press on rod or on tower element to select upper element and press on another rod to move it, so that will help solve the puzzle.
+- As a user, I want to select rods by keyboard, so that help increase a speed of solve puzzle.
