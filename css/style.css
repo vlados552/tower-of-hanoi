@@ -38,10 +38,9 @@ h1 {
 	font-size: 2.5rem;
 	padding: 1rem;
 	text-align: center;
-	color:white;
+	color: white;
 	padding-left: 15%;
 	padding-right: 15%;
-	padding-top: 4%;
 }
 
 h2 {
@@ -51,13 +50,13 @@ h2 {
 	padding-bottom: 20%;
 }
 
-h3{
+h3 {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
 
-li{
-	padding: 1rem 2rem;
+li {
+	line-height: 1.5;
 }
 
 img {
@@ -91,7 +90,7 @@ header {
 	margin-right: 10vw;
 }
 
-.banner-title{
+.banner-title {
 	background-image: url('/img/banner_title.png');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
@@ -101,13 +100,14 @@ main {
 	margin-left: 10vw;
 	margin-right: 10vw;
 	text-align: center;
+	height: 80vh;
 }
 
 .main {
 	background-image: url('/img/background.gif');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
-	height: 80vh;
+	height: 100%;
 }
 
 footer {
@@ -121,13 +121,12 @@ footer {
 }
 
 footer > p {
-	padding-left: 18%;
-	padding-right: 18%;
-	padding-top: 5%;
 	color: white;
 }
 
-footer > a, a:link, a:visited{
+footer > a,
+a:link,
+a:visited {
 	color: white;
 	text-decoration: none;
 }
@@ -245,16 +244,18 @@ footer > a, a:link, a:visited{
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
-	padding: 5rem 9rem 1rem 9rem;
+	padding: 5% 8%;
 	min-height: 30vh;
 }
 
-.modal-inner-game-over{
-	padding: 3rem 7rem 3rem 7rem;
+.modal-inner-game-over {
+	padding: 5% 8%;
+	line-height: 1.5;
 }
 
-.modal-inner-game-complete{
-	padding: 3rem 7rem 3rem 7rem;
+.modal-inner-game-complete {
+	padding: 5% 8%;
+	line-height: 1.5;
 }
 /* ===============================
   Animation
