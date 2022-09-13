@@ -1,3 +1,11 @@
+//#region /*----- classes -----*/
+class Disk {
+	constructor(index, img) {
+		this.index = index;
+		this.img = img;
+	}
+}
+//#endregion
 //#region /*----- constants -----*/
 const DIFFICULT = 5;
 const GAME_STATE_WELCOME = 0;
@@ -13,6 +21,7 @@ let leftRodArr;
 let centerRodArr;
 let rightRodArr;
 let pickedDisk;
+let incorrectMove;
 //#endregion
 //#region /*----- cached element references -----*/
 const btnPlay = document.querySelector('#js-modal-btn-play');
@@ -63,6 +72,7 @@ body.addEventListener('click', function (e) {
 	}
 	render();
 });
+
 // document.addEventListener('keypress', function (e) {
 // 	const keyName = e.key;
 // 	if (gameState === GAME_STATE_GAMEPLAY) {
@@ -91,6 +101,10 @@ function render() {
 	renderGameState();
 	if (gameState === GAME_STATE_GAMEPLAY) {
 		renderRods();
+		renderGlowElement(pickedDisk);
+		if (incorrectMove) {
+			renderIncorrectMove(pickedDisk);
+		}
 	}
 }
 function renderGameState() {
@@ -141,26 +155,26 @@ function removeClass(target, className) {
 }
 function generateDisks(num) {
 	if (num < 1) return;
-	leftRodArr.push(num);
+	const disk = new Disk(num);
+	disk.index = num;
+	if (num === 1) {
+		disk.img = '/img/top.png';
+	} else {
+		disk.img = `/img/part${Math.floor(getRandomValue(1, 2))}.png`;
+	}
+	leftRodArr.push(disk);
 	generateDisks(num - 1);
 }
-function createElementDisk(index) {
+function createElementDisk(value) {
 	element = document.createElement('div');
 	element.classList.add('disk');
 	element.style.height = '20%';
-	element.style.width = diskWidth(index);
-	// element.style.border = '3px solid white';
-	if (index === 1) {
-		element.style.backgroundImage = "url('/img/top.png')";
-		element.style.backgroundSize = 'contain';
-		element.style.backgroundRepeat = 'no-repeat';
-	} else {
-		element.style.backgroundImage = `url('/img/part${Math.floor(
-			getRandomValue(1, 2)
-		)}.png')`;
-		element.style.backgroundSize = 'contain';
-		element.style.backgroundRepeat = 'no-repeat';
-	}
+	element.style.width = diskWidth(value.index);
+	element.style.backgroundSize = '100% 100%';
+	element.style.backgroundRepeat = 'no-repeat';
+	element.style.backgroundPosition = 'bottom';
+	element.style.marginBottom = '-15px';
+	element.style.backgroundImage = `url('${value.img}')`;
 
 	return element;
 }
@@ -200,13 +214,16 @@ function moveDisk(source, destination) {
 	pickedDisk = null;
 }
 function checkEligibility(destination) {
+	if (destination[destination.length - 1] === undefined) {
+		return true;
+	}
 	if (
-		pickedDisk[pickedDisk.length - 1] < destination[destination.length - 1] ||
-		destination[destination.length - 1] === undefined
+		pickedDisk[pickedDisk.length - 1].index <
+		destination[destination.length - 1].index
 	) {
 		return true;
 	} else {
-		incorrectMove();
+		incorrectMove = true;
 		return false;
 	}
 }
@@ -222,20 +239,43 @@ function makeAction(array) {
 		pickDisk(array);
 	}
 }
-function incorrectMove() {
-	console.log('incorrect move');
+
+function renderIncorrectMove(array) {
+	if (array === leftRodArr) {
+		addClass(leftRodEl.firstChild, 'shake');
+		setTimeout(removeClass, 1000, leftRodEl.firstChild, 'shake');
+	} else if (array === centerRodArr) {
+		addClass(centerRodEl.firstChild, 'shake');
+		setTimeout(removeClass, 1000, leftRodEl.firstChild, 'shake');
+	} else if (array === rightRodArr) {
+		addClass(rightRodEl.firstChild, 'shake');
+		setTimeout(removeClass, 1000, leftRodEl.firstChild, 'shake');
+	}
+	incorrectMove = false;
 }
 function isPuzzleSolved() {
 	if (rightRodArr.length === DIFFICULT) {
 		gameState = GAME_STATE_GAMECOMPLETE;
 	}
 }
-
 function getRandomValue(min, max) {
-	if (min > 1) {
+	if (min >= 1) {
 		return Math.random() * (max + 1 - min) + min;
 	} else {
 		return Math.random() * (max - min) + min;
+	}
+}
+function renderGlowElement(array) {
+	if (array === leftRodArr) {
+		leftRodEl.firstChild.style.boxShadow = '0px 0px 30px 5px white';
+	} else if (array === centerRodArr) {
+		centerRodEl.firstChild.style.boxShadow = '0px 0px 30px 5px white';
+	} else if (array === rightRodArr) {
+		rightRodEl.firstChild.style.boxShadow = '0px 0px 30px 5px white';
+	} else {
+		leftRodEl.firstChild.style.boxShadow = 'none';
+		centerRodEl.firstChild.style.boxShadow = 'none';
+		rightRodEl.firstChild.style.boxShadow = 'none';
 	}
 }
 //#endregion
