@@ -35,14 +35,29 @@ body {
 }
 
 h1 {
-	font-size: 3rem;
+	font-size: 2.5rem;
 	padding: 1rem;
 	text-align: center;
+	color:white;
+	padding-left: 15%;
+	padding-right: 15%;
+	padding-top: 4%;
 }
 
 h2 {
 	font-size: 1.5rem;
 	margin-bottom: 1rem;
+	padding-top: 20%;
+	padding-bottom: 20%;
+}
+
+h3{
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+li{
+	padding: 1rem 2rem;
 }
 
 img {
@@ -72,9 +87,14 @@ img {
 
 header {
 	height: 10vh;
-	background-color: grey;
 	margin-left: 10vw;
 	margin-right: 10vw;
+}
+
+.banner-title{
+	background-image: url('/img/banner_title.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 main {
@@ -92,10 +112,24 @@ main {
 
 footer {
 	height: 10vh;
-	background-color: grey;
 	margin-left: 10vw;
 	margin-right: 10vw;
 	font-family: Arial, Helvetica, sans-serif;
+	background-image: url('/img/banner_title.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+footer > p {
+	padding-left: 18%;
+	padding-right: 18%;
+	padding-top: 5%;
+	color: white;
+}
+
+footer > a, a:link, a:visited{
+	color: white;
+	text-decoration: none;
 }
 
 .rod {
@@ -191,14 +225,6 @@ footer {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background-image: url('/img/modal.gif');
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
-	box-shadow: 4px 1px 10px 0px #dadada;
-	border-radius: 4px;
-	padding: 3rem 3rem 1rem 3rem;
 	animation: MoveUpDown 2s linear 1;
 	color: white;
 }
@@ -207,6 +233,34 @@ footer {
 	margin-bottom: 1.5rem;
 }
 
+.modal-inner-welcome {
+	background-image: url('/img/modal.gif');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	box-shadow: 4px 1px 10px 0px #dadada;
+	border-radius: 4px;
+	padding: 1rem 3rem 1rem 3rem;
+	min-height: 30vh;
+}
+.modal-inner-rules {
+	background-image: url('/img/banner_2.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	padding: 5rem 9rem 1rem 9rem;
+	min-height: 30vh;
+}
+
+.modal-inner-game-over{
+	padding: 3rem 7rem 3rem 7rem;
+}
+
+.modal-inner-game-complete{
+	padding: 3rem 7rem 3rem 7rem;
+}
 /* ===============================
   Animation
 =============================== */

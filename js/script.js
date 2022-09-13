@@ -173,7 +173,7 @@ function createElementDisk(value) {
 	element.style.backgroundSize = '100% 100%';
 	element.style.backgroundRepeat = 'no-repeat';
 	element.style.backgroundPosition = 'bottom';
-	element.style.marginBottom = '-15px';
+	element.style.marginBottom = '-20px';
 	element.style.backgroundImage = `url('${value.img}')`;
 
 	return element;

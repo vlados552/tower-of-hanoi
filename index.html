@@ -12,8 +12,8 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<header>
-				<h1>TOWER OF HANOI</h1>
+			<header class="banner-title">
+				<h1>tower of hanoi</h1>
 			</header>
 			<main>
 				<div
@@ -34,10 +34,10 @@
 				<button id="js-btn-surrender">SURRENDER</button>
 			</main>
 			<footer>
-				&copy; <a href="https://github.com/vlados552">vlados552</a>
+				<p>&copy; <a href="https://github.com/vlados552">vlados552</a></p>
 			</footer>
 			<section class="modal modal-welcome">
-				<div class="modal-inner text-center">
+				<div class="modal-inner text-center modal-inner-welcome">
 					<h3>ARE YOU READY TO KNOW MADNESS?</h3>
 					<h2 id="game-name">TOWER OF HANOI</h2>
 					<button id="js-modal-btn-play">PLAY</button>
@@ -45,7 +45,7 @@
 				</div>
 			</section>
 			<section class="modal modal-how-to-play hide">
-				<div class="modal-inner text-center">
+				<div class="modal-inner text-center modal-inner-rules">
 					<h3>WE HAVE ONLY FOUR RULES:</h3>
 					<ol>
 						<li>ONLY ONE DISK CAN BE MOVED AT A TIME</li>
@@ -66,8 +66,8 @@
 			</section>
 			<!-- <section class="modal modal-difficult hide"></section> -->
 			<section class="modal modal-game-over hide">
-				<div class="modal-innner text-center">
-					<h3 id="js-modal-game-over-text">
+				<div class="modal-inner text-center banner-title modal-inner-game-over">
+					<h3>
 						YOU ARE TOO WEEK TO KNOW MADNESS.
 					</h3>
 					<button id="js-modal-game-over-play-again">NO, I'M NOT</button>
@@ -77,7 +77,7 @@
 				</div>
 			</section>
 			<section class="modal modal-game-complete hide">
-				<div class="modal-innner text-center">
+				<div class="modal-inner text-center banner-title modal-inner-game-complete">
 					<h3>CONGRATULATION!</h3>
 					<h4>WE ARE PROUD OF YOU!</h4>
 					<h4>ARE YOU READY TO SOLVE IT AGAIN?</h4>
