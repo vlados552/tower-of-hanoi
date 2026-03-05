@@ -61,13 +61,13 @@ body.addEventListener('click', function (e) {
 		gameState = GAME_STATE_GAMEPLAY;
 		init();
 	}
-	if (e.path.includes(leftRodEl)) {
+	if (leftRodEl.contains(e.target)) {
 		makeAction(leftRodArr);
 	}
-	if (e.path.includes(centerRodEl)) {
+	if (centerRodEl.contains(e.target)) {
 		makeAction(centerRodArr);
 	}
-	if (e.path.includes(rightRodEl)) {
+	if (rightRodEl.contains(e.target)) {
 		makeAction(rightRodArr);
 	}
 	render();
