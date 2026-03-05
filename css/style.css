@@ -41,6 +41,7 @@ h1 {
 	color: white;
 	padding-left: 15%;
 	padding-right: 15%;
+	white-space: nowrap;
 }
 
 h2 {
@@ -86,8 +87,7 @@ img {
 
 header {
 	height: 10vh;
-	margin-left: 10vw;
-	margin-right: 10vw;
+
 }
 
 .banner-title {
@@ -97,8 +97,6 @@ header {
 }
 
 main {
-	margin-left: 10vw;
-	margin-right: 10vw;
 	text-align: center;
 	height: 80vh;
 }
@@ -112,8 +110,6 @@ main {
 
 footer {
 	height: 10vh;
-	margin-left: 10vw;
-	margin-right: 10vw;
 	font-family: Arial, Helvetica, sans-serif;
 	background-image: url('/img/banner_title.png');
 	background-repeat: no-repeat;
